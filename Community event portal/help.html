@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | NEXUS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .help-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .help-grid {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .help-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        
+        .help-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .help-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-section {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .faq-question {
+            padding: 1.25rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            background: white;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background: #f8fafc;
+        }
+        
+        .faq-answer {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-muted);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 1.25rem 1.25rem;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            margin: 3rem auto;
+            border-radius: var(--radius-xl);
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="modern-header">
+    <div class="nav-container">
+        <div class="logo-area">
+            <span class="logo-icon">🎪</span>
+            <span class="logo-text">NEXUS</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="register.html">Register</a>
+            <a href="index.html#gallery">Gallery</a>
+            <a href="index.html#feedback">Feedback</a>
+            <a href="help.html" class="active">Help</a>
+        </nav>
+    </div>
+</header>
+
+<div class="help-hero">
+    <h1 style="font-size: 2.5rem; margin-bottom: 1rem;"><i class="fas fa-question-circle"></i> How Can We Help?</h1>
+    <p>Find answers, get support, and make the most of your community experience</p>
+</div>
+
+<div class="help-grid">
+    <div class="help-card">
+        <div class="help-icon">📝</div>
+        <h3>Registration Guide</h3>
+        <p>1. Browse events → 2. Click "Register Now" → 3. Fill details → 4. Confirm</p>
+        <p style="margin-top: 0.5rem;"><strong>📧</strong> You'll receive confirmation via email</p>
+    </div>
+    
+    <div class="help-card">
+        <div class="help-icon">🎫</div>
+        <h3>Payments & Refunds</h3>
+        <p>✅ UPI, Cards, NetBanking<br>✅ 7-day cancellation: 100% refund<br>✅ Group discounts: 5+ = 15% off</p>
+    </div>
+    
+    <div class="help-card">
+        <div class="help-icon">📍</div>
+        <h3>Venues Across India</h3>
+        <p>Bengaluru • Mumbai • Delhi • Chennai<br>Hyderabad • Pune • Kolkata • Jaipur</p>
+    </div>
+    
+    <div class="help-card">
+        <div class="help-icon">⭐</div>
+        <h3>Feedback & Reviews</h3>
+        <p>Share your experience! Rate events 1-5 stars and help fellow community members.</p>
+    </div>
+</div>
+
+<div class="faq-section">
+    <h2 style="text-align: center; margin-bottom: 2rem;">📋 Frequently Asked Questions</h2>
+    
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>What types of events are available?</span>
+            <span><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">Tech conferences, Music festivals, Workshops, Networking events, Yoga retreats, and Literature festivals across India.</div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>How do I know my registration is confirmed?</span>
+            <span><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">You'll see a confirmation message with Registration ID and receive an email within minutes.</div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>Can I register for multiple events?</span>
+            <span><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">Yes! Register for as many events as you'd like — each registration is separate.</div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question">
+            <span>Are children allowed?</span>
+            <span><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="faq-answer">Most events are family-friendly. Check individual event descriptions for age guidelines.</div>
+    </div>
+</div>
+
+<div class="contact-section">
+    <h2><i class="fas fa-headset"></i> Still Need Help?</h2>
+    <p>Our support team is here 24/7</p>
+    <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 2rem 0;">
+        <div><i class="fas fa-envelope"></i> support@nexus.com</div>
+        <div><i class="fas fa-phone"></i> +91 1800 123 4567</div>
+        <div><i class="fab fa-whatsapp"></i> +91 98765 43210</div>
+    </div>
+    <a href="index.html" style="color: white; background: rgba(255,255,255,0.2); padding: 0.75rem 2rem; border-radius: 100px; text-decoration: none;">← Back to Home</a>
+</div>
+
+<footer class="modern-footer">
+    <p>&copy; 2025 NEXUS — Bringing Indian Communities Together 🇮🇳</p>
+</footer>
+
+<script>
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | India's Premier Community Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="modern-header">
+    <div class="nav-container">
+        <div class="logo-area">
+            <span class="logo-icon">🎪</span>
+            <span class="logo-text">NEXUS</span>
+        </div>
+        
+        <nav class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="register.html">Register</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#feedback">Feedback</a>
+            <a href="help.html">Help</a>
+        </nav>
+        
+        <div class="pref-controls">
+            <select id="prefCategory">
+                <option value="">All Events</option>
+                <option value="Tech">Tech</option>
+                <option value="Music">Music</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Conference">Conference</option>
+            </select>
+            <button class="btn-small" id="clearPrefsBtn">Clear</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="hero-badge">✨ Where India Connects ✨</span>
+            <h1 class="hero-title">Discover <span>Extraordinary</span><br>Events Near You</h1>
+            <p class="hero-subtitle">Join thousands of community members across 20+ Indian cities. Tech, music, workshops, and conferences — find your tribe today.</p>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <div class="section-container">
+        <div class="section-header">
+            <h2>🔥 Upcoming Events</h2>
+            <p>Curated experiences across India — from Bengaluru to Kolkata</p>
+        </div>
+        
+        <div class="filter-bar">
+            <input type="text" id="searchInput" placeholder="🔍 Search events..." class="search-input">
+            <select id="categoryFilter" class="filter-select">
+                <option value="all">All Categories</option>
+                <option value="Tech">💻 Tech</option>
+                <option value="Music">🎵 Music</option>
+                <option value="Workshop">📚 Workshop</option>
+                <option value="Conference">🎤 Conference</option>
+            </select>
+        </div>
+        
+        <div id="eventsContainer" class="events-grid"></div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="section-container" id="gallery">
+        <div class="section-header">
+            <h2>📸 Event Highlights</h2>
+            <p>Memorable moments from past celebrations</p>
+        </div>
+        
+        <div class="gallery-container" style="overflow-x: auto;">
+            <table class="gallery-table">
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>Moments</th>
+                        <th>Highlights</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bengaluru Tech Summit</strong><br>📍 Bengaluru</td>
+                        <td><img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?w=200&h=120&fit=crop" alt="Tech Summit" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                        <td>🎤 1000+ attendees • 🤝 50+ speakers • 💡 Innovation showcase</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Goa Sunburn Festival</strong><br>📍 Goa</td>
+                        <td><img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?w=200&h=120&fit=crop" alt="Music Festival" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                        <td>🎸 30+ artists • 🌊 Beachside venue • 🎉 5000+ music lovers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hyderabad Frontend Bootcamp</strong><br>📍 Hyderabad</td>
+                        <td><img src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?w=200&h=120&fit=crop" alt="Workshop" class="gallery-img" ondblclick="enlargeImage(this)"></td>
+                        <td>💻 200+ developers • ⚛️ Hands-on coding • 🏆 Hackathon</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="section-container" id="feedback">
+        <div class="section-header">
+            <h2>⭐ Share Your Experience</h2>
+            <p>Your feedback helps us grow better</p>
+        </div>
+        
+        <form id="feedbackForm" class="feedback-form">
+            <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" id="feedbackName" placeholder="Enter your name" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Event</label>
+                <select id="feedbackEvent" required></select>
+            </div>
+            
+            <div class="form-group">
+                <label>Rating</label>
+                <div class="rating-stars">
+                    <span data-rating="1" class="star">★</span>
+                    <span data-rating="2" class="star">★</span>
+                    <span data-rating="3" class="star">★</span>
+                    <span data-rating="4" class="star">★</span>
+                    <span data-rating="5" class="star">★</span>
+                </div>
+                <input type="hidden" id="ratingValue" value="0">
+            </div>
+            
+            <div class="form-group">
+                <label>Comments</label>
+                <textarea id="feedbackComments" rows="4" placeholder="Tell us about your experience..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary">Submit Feedback ✨</button>
+        </form>
+    </div>
+
+    <!-- Video Section -->
+    <div class="section-container">
+        <div class="section-header">
+            <h2>🎬 Event Reels</h2>
+            <p>Watch highlights from our biggest events</p>
+        </div>
+        
+        <div class="videos-grid">
+            <div class="video-container">
+                <h3>🏃 Mumbai Marathon 2024</h3>
+                <div class="video-embed-wrapper">
+                    <iframe src="https://www.youtube.com/watch?v=ltev1B0H2Cs" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">10,000+ runners • ₹50L raised for charity</div>
+            </div>
+            <div class="video-container">
+                <h3>💻 Tech Summit Bengaluru</h3>
+                <div class="video-embed-wrapper">
+                    <iframe src="https://www.youtube.com/embed/LXb3EKWsInQ?rel=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">Industry leaders • Startup pitches • Networking</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- News Section -->
+    <div class="section-container">
+        <div class="section-header">
+            <h2>📰 Community Bulletin</h2>
+            <p>Stay updated with latest news</p>
+        </div>
+        
+        <div class="news-columns">
+            <div class="news-card">
+                <i class="fas fa-trophy" style="color: #f59e0b; font-size: 1.5rem;"></i>
+                <p style="margin-top: 0.5rem;"><strong>🏆 Volunteer of the Month:</strong> Priya Sharma organized a food drive collecting 5000+ items across Mumbai.</p>
+            </div>
+            <div class="news-card">
+                <i class="fas fa-microphone" style="color: #8b5cf6; font-size: 1.5rem;"></i>
+                <p style="margin-top: 0.5rem;"><strong>📢 Call for Speakers:</strong> Tech Summit in Hyderabad looking for speakers. Submit by March 15th.</p>
+            </div>
+            <div class="news-card">
+                <i class="fas fa-bicycle" style="color: #10b981; font-size: 1.5rem;"></i>
+                <p style="margin-top: 0.5rem;"><strong>🚴 Cycle to Work Day:</strong> Join us April 22nd in Pune. First 100 get free breakfast!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Geolocation -->
+    <div class="section-container" style="text-align: center;">
+        <button id="findNearbyBtn" class="btn-primary" style="width: auto; padding: 1rem 2rem;">
+            <i class="fas fa-location-dot"></i> Find Events Near Me
+        </button>
+        <div id="locationResult" style="margin-top: 1.5rem;"></div>
+    </div>
+    
+    <!-- View Registrations Button -->
+    <div class="section-container" style="text-align: center;">
+        <button onclick="viewAllRegistrations()" class="btn-primary" style="background: linear-gradient(135deg, #10b981, #059669); width: auto; padding: 1rem 2rem;">
+            <i class="fas fa-list"></i> View All Registrations
+        </button>
+    </div>
+</main>
+
+<footer class="modern-footer">
+    <p>&copy; 2025 NEXUS — Bringing Indian Communities Together 🇮🇳</p>
+    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Made with ❤️ for the local community across India</p>
+</footer>
+
+<!-- ALL JavaScript files in correct order -->
+<script src="events-data.js"></script>
+<script src="mock-api.js"></script>
+<script src="sql-simulation.js"></script>
+<script src="main.js"></script>
+
+<script>
+    // Additional initialization to ensure everything works
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("NEXUS Portal Loaded - Everything is working!");
+        
+        // Initialize feedback event dropdown
+        const feedbackEventSelect = document.getElementById('feedbackEvent');
+        if (feedbackEventSelect && typeof communityEvents !== 'undefined') {
+            feedbackEventSelect.innerHTML = '<option value="">-- Select an event --</option>';
+            communityEvents.forEach(event => {
+                const option = document.createElement('option');
+                option.value = event.id;
+                option.textContent = `${event.name} (${event.category})`;
+                feedbackEventSelect.appendChild(option);
+            });
+        }
+        
+        // Rating stars functionality
+        const stars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('ratingValue');
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = parseInt(this.dataset.rating);
+                ratingInput.value = rating;
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.add('active');
+                        s.style.color = '#f59e0b';
+                    } else {
+                        s.classList.remove('active');
+                        s.style.color = '#cbd5e0';
+                    }
+                });
+            });
+        });
+        
+        // Feedback form submission
+        const feedbackForm = document.getElementById('feedbackForm');
+        if (feedbackForm) {
+            feedbackForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('feedbackName')?.value || 'Anonymous';
+                const rating = ratingInput?.value;
+                const comments = document.getElementById('feedbackComments')?.value;
+                const eventSelect = document.getElementById('feedbackEvent');
+                const eventName = eventSelect.options[eventSelect.selectedIndex]?.text || 'Unknown Event';
+                
+                if (!rating || rating === '0') {
+                    alert("Please select a rating!");
+                    return;
+                }
+                if (!eventSelect.value) {
+                    alert("Please select an event!");
+                    return;
+                }
+                
+                const feedbacks = JSON.parse(localStorage.getItem('eventFeedbacks') || '[]');
+                feedbacks.push({
+                    id: Date.now(),
+                    name: name,
+                    rating: parseInt(rating),
+                    comments: comments,
+                    eventName: eventName,
+                    date: new Date().toISOString()
+                });
+                localStorage.setItem('eventFeedbacks', JSON.stringify(feedbacks));
+                
+                alert(`⭐ Thank you ${name} for your ${rating}-star rating!`);
+                feedbackForm.reset();
+                if (ratingInput) ratingInput.value = '0';
+                stars.forEach(s => {
+                    s.classList.remove('active');
+                    s.style.color = '#cbd5e0';
+                });
+            });
+        }
+        
+        // Geolocation button
+        const findBtn = document.getElementById('findNearbyBtn');
+        if (findBtn && typeof findNearbyEvents === 'function') {
+            findBtn.onclick = findNearbyEvents;
+        }
+        
+        // Clear preferences
+        const clearBtn = document.getElementById('clearPrefsBtn');
+        if (clearBtn) {
+            clearBtn.onclick = function() {
+                localStorage.removeItem('preferredEventType');
+                localStorage.removeItem('eventRegistrations');
+                sessionStorage.removeItem('lastViewedCategory');
+                if (document.getElementById('prefCategory')) document.getElementById('prefCategory').value = '';
+                if (document.getElementById('categoryFilter')) document.getElementById('categoryFilter').value = 'all';
+                alert("All preferences and registration data cleared!");
+                location.reload();
+            };
+        }
+        
+        // Preference save
+        const prefCat = document.getElementById('prefCategory');
+        if (prefCat) {
+            prefCat.addEventListener('change', function() {
+                localStorage.setItem('preferredEventType', this.value);
+                if (document.getElementById('categoryFilter')) {
+                    document.getElementById('categoryFilter').value = this.value;
+                    if (typeof filterEventsByCategory === 'function') filterEventsByCategory();
+                }
+            });
+        }
+    });
+    
+    // Make enlargeImage global
+    window.enlargeImage = function(imgElement) {
+        const modal = document.createElement('div');
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.backgroundColor = 'rgba(0,0,0,0.9)';
+        modal.style.display = 'flex';
+        modal.style.justifyContent = 'center';
+        modal.style.alignItems = 'center';
+        modal.style.zIndex = '10000';
+        modal.style.cursor = 'pointer';
+        
+        const enlargedImg = document.createElement('img');
+        enlargedImg.src = imgElement.src;
+        enlargedImg.style.maxWidth = '90%';
+        enlargedImg.style.maxHeight = '90%';
+        enlargedImg.style.borderRadius = '12px';
+        
+        modal.appendChild(enlargedImg);
+        document.body.appendChild(modal);
+        modal.onclick = () => modal.remove();
+    };
+</script>
+</body>
+</html>
